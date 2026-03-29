@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ike-check"
+version = "0.1.0"
+description = "IKE Cipher Suite Scanner - enumerate supported cipher suites from an IKE peer"
+authors = [
+    {name = "Manuel Mancera", email = "manu@unam.re"},
+]
+requires-python = ">=3.10"
+dependencies = [
+    "rich>=13.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+]
+
+[project.scripts]
+ike-check = "ike_check.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["ike_check*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
